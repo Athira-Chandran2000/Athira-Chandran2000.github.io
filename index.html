@@ -8,141 +8,86 @@
 </head>
 <body>
 
-<header>
-  <img src="profile.jpeg" alt="Athira Chandran" class="profile-pic"/>
+<header class="hero">
+  <img src="profile.jpg" alt="Athira Chandran" class="profile-pic">
   <h1>Athira Chandran</h1>
-  <p class="subtitle">M.Tech Data Science Student</p>
-  <div class="contact">
+  <h3>M.Tech Data Science Student</h3>
+  <p class="hero-text">
+    Passionate and goal oriented Data Science student with strong analytical,
+    programming, and problem-solving skills, focused on machine learning,
+    deep learning, and data-driven solutions.
+  </p>
+
+  <div class="links">
     <a href="mailto:athirachandran4224@gmail.com">Email</a>
     <a href="https://www.linkedin.com/in/iamathirachandran" target="_blank">LinkedIn</a>
     <a href="https://github.com/Athira-Chandran2000" target="_blank">GitHub</a>
   </div>
 </header>
 
-<section>
-  <h2>Profile</h2>
-  <p>
-    Passionate and goal-oriented M.Tech Data Science student with strong analytical,
-    programming, and problem-solving skills. Experienced in machine learning and deep
-    learning academic projects involving data preprocessing, model building, and evaluation.
-    Eager to contribute to data-driven solutions.
-  </p>
-</section>
-
-<section>
+<section class="container">
   <h2>Education</h2>
-  <ul>
-    <li>
-      <strong>M.Tech Data Science</strong> – Amrita Vishwa Vidyapeetham  
-      <br/>CGPA: 8.72
-    </li>
-    <li>
-      <strong>B.Tech Dairy Technology</strong> – Kerala Veterinary and Animal Sciences University  
-      <br/>OGPA: 8.39
-    </li>
-    <li>
-      <strong>Higher Secondary Education</strong> – Govt. HSS, Pala  
-      <br/>Marks: 98.66%
-    </li>
-    <li>
-      <strong>10th Board</strong> – Govt. HSS, Pala  
-      <br/>Marks: 95%
-    </li>
-  </ul>
+  <div class="card">
+    <p><strong>M.Tech Data Science</strong> – Amrita Vishwa Vidyapeetham<br>CGPA: 8.72</p>
+    <p><strong>B.Tech Dairy Technology</strong> – Kerala Veterinary and Animal Sciences University<br>OGPA: 8.39</p>
+    <p><strong>Higher Secondary</strong> – Govt HSS, Pala (98.66%)</p>
+    <p><strong>10th Board</strong> – Govt HSS, Pala (95%)</p>
+  </div>
 </section>
 
-<section>
+<section class="container">
   <h2>Technical Skills</h2>
-  <ul class="skills">
-    <li><strong>Programming:</strong> Python, Java, SQL, PostgreSQL</li>
-    <li><strong>Machine Learning:</strong> Classification, Regression, Clustering, Model Evaluation</li>
-    <li><strong>Deep Learning:</strong> Neural Networks, NLP, Computer Vision, Speech Processing</li>
-    <li><strong>Libraries:</strong> Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn, TensorFlow, Keras, NLTK</li>
-    <li><strong>Tools:</strong> Jupyter Notebook, Google Colab, VS Code</li>
-    <li><strong>Version Control:</strong> Git, GitHub</li>
-  </ul>
+  <div class="card">
+    <p><strong>Programming:</strong> Python, Java, SQL, PostgreSQL</p>
+    <p><strong>Machine Learning:</strong> Classification, Regression, Clustering, Statistical Analysis, Model Evaluation</p>
+    <p><strong>Deep Learning:</strong> Neural Networks, Natural Language Processing, Computer Vision, Speech Processing</p>
+    <p><strong>Libraries:</strong> Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn, TensorFlow, Keras, NLTK</p>
+    <p><strong>Tools:</strong> Jupyter Notebook, Google Colab, VS Code</p>
+    <p><strong>Version Control:</strong> Git, GitHub</p>
+  </div>
 </section>
 
-<section>
+<section class="container">
   <h2>Projects</h2>
 
-  <div class="project">
+  <div class="project-card">
     <h3>Cross-Lingual Speaker Verification for Indic Languages</h3>
     <ul>
-      <li>Pre-trained on LibriSpeech and fine-tuned on Tamil and Malayalam datasets</li>
-      <li>Implemented ECAPA-Conformer with multi-head attention for feature fusion</li>
-      <li>Used hybrid AAM-Softmax + Triplet loss with extensive data augmentation</li>
+      <li>Developed a robust cross-lingual speaker verification system by pre-training on high-resource English (LibriSpeech) and fine-tuning on low-resource Indic languages (Tamil, Malayalam).</li>
+      <li>Implemented an advanced ECAPA-Conformer architecture with a multi-head attention module to fuse spectral (Log-Mel, MFCC) and prosodic (pitch, energy) features.</li>
+      <li>Enhanced embedding discriminability using a hybrid AAM-Softmax and Triplet loss, combined with extensive data augmentation (SpecAugment, noise, reverb) to ensure model robustness.</li>
     </ul>
   </div>
 
-  <div class="project">
-    <h3>Multilingual Hate Speech Detection</h3>
+  <div class="project-card">
+    <h3>Multilingual Hate Speech Detection Using Machine Learning and Transformers</h3>
     <ul>
-      <li>Developed models for English and Malayalam social media datasets</li>
-      <li>Compared ML, CNN-BiLSTM, and transformer-based models (BERT, MuRIL, mBERT)</li>
-      <li>Handled class imbalance and optimized hyperparameters</li>
+      <li>Developed a multilingual hate speech detection system for English and Malayalam social media datasets.</li>
+      <li>Implemented and compared traditional ML models (Decision Tree, Random Forest, XGBoost), CNN + BiLSTM hybrid model, and transformer-based models (BERT, MuRIL, mBERT, IndicBERT).</li>
+      <li>Optimized hyperparameters and addressed class imbalance, contributing to robust NLP solutions for low-resource languages.</li>
     </ul>
   </div>
 
-  <div class="project">
-    <h3>Indian Food Detection and Nutrient Estimation (YOLOv5)</h3>
+  <div class="project-card">
+    <h3>Indian Food Detection and Nutrient Estimation System using YOLOv5</h3>
     <ul>
-      <li>Built a computer vision pipeline for food detection and nutrition mapping</li>
-      <li>Achieved mAP@0.5 of 0.76</li>
-      <li>Reduced false positives by 18% through optimization and threshold tuning</li>
+      <li>Built a computer vision–based data science pipeline to detect Indian food items and associate them with nutritional data.</li>
+      <li>Compared optimization strategies and achieved mAP@0.5 of 0.76.</li>
+      <li>Reduced false positives by 18% through optimizer and threshold tuning.</li>
+      <li>Evaluated model behavior to understand real-world applicability and limitations.</li>
     </ul>
   </div>
 
-  <div class="project">
-    <h3>Neonatal HIE Segmentation and Classification</h3>
+  <div class="project-card">
+    <h3>Integrated Segmentation and Classification Framework for Neonatal HIE</h3>
     <ul>
-      <li>Two-stage framework combining image segmentation and ML classification</li>
-      <li>Dice score: 0.749, Classification accuracy: 89%</li>
-      <li>Presented at IEEE INDICON 2025</li>
+      <li>Formulated a two-stage framework combining deep learning–based segmentation and machine learning classification.</li>
+      <li>Performed data exploration and feature extraction to analyze imaging patterns related to disease severity.</li>
+      <li>Achieved Dice score of 0.749 and classification accuracy of 89%.</li>
+      <li>Improved consistency across severity grades with macro F1-score of 0.83.</li>
+      <li>Presented the research at IEEE INDICON 2025.</li>
     </ul>
   </div>
-</section>
-
-<section>
-  <h2>Professional Experience</h2>
-  <ul>
-    <li>
-      <strong>GCMMF (AMUL)</strong> – Internship  
-      <br/>Analyzed production data to identify process inefficiencies.
-    </li>
-    <li>
-      <strong>TCMPF Limited (Aavin)</strong> – Internship  
-      <br/>Explored quality control data for process reliability.
-    </li>
-  </ul>
-</section>
-
-<section>
-  <h2>Publications</h2>
-  <p>
-    <strong>Integrated Segmentation and Classification Framework for Neonatal HIE</strong><br/>
-    Presented at IEEE INDICON 2025
-  </p>
-</section>
-
-<section>
-  <h2>Certifications</h2>
-  <p>GATE XL 2024 – Score: 604 | AIR: 588</p>
-</section>
-
-<section>
-  <h2>Soft Skills</h2>
-  <p>Communication, Time Management, Decision Making, Team Work, Adaptability</p>
-</section>
-
-<section>
-  <h2>Languages</h2>
-  <p>English, Malayalam, Hindi, Tamil</p>
-</section>
-
-<section>
-  <h2>Interests</h2>
-  <p>Listening to music, Puzzle solving</p>
 </section>
 
 <footer>
@@ -151,5 +96,3 @@
 
 </body>
 </html>
-
-
