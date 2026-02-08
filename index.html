@@ -1,97 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Athira Chandran | Data Science Portfolio</title>
-  <link rel="stylesheet" href="styles.css"/>
+  <meta charset="UTF-8">
+  <title>Athira Chandran | Data Science & AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<header class="hero">
-  <img src="profile.jpg" alt="Athira Chandran" class="profile-pic">
-  <h1>Athira Chandran</h1>
-  <h3>M.Tech Data Science Student</h3>
-  <p class="hero-text">
-    Passionate and goal oriented Data Science student with strong analytical,
-    programming, and problem-solving skills, focused on machine learning,
-    deep learning, and data-driven solutions.
-  </p>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-card">
+    <img src="profile.jpg" class="avatar" alt="Athira Chandran">
+    <h1>Athira Chandran</h1>
+    <p class="role">M.Tech Data Science · AI & ML Research</p>
+    <p class="intro">
+      Passionate and goal-oriented Data Science postgraduate with strong analytical,
+      programming, and problem-solving skills. Experienced in machine learning,
+      deep learning, speech processing, computer vision, and NLP with research-driven projects.
+    </p>
 
-  <div class="links">
-    <a href="mailto:athirachandran4224@gmail.com">Email</a>
-    <a href="https://www.linkedin.com/in/iamathirachandran" target="_blank">LinkedIn</a>
-    <a href="https://github.com/Athira-Chandran2000" target="_blank">GitHub</a>
+    <div class="hero-links">
+      <a href="mailto:athirachandran4224@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/iamathirachandran" target="_blank">LinkedIn</a>
+      <a href="https://github.com/Athira-Chandran2000" target="_blank">GitHub</a>
+    </div>
   </div>
-</header>
+</section>
 
-<section class="container">
+<!-- EDUCATION -->
+<section class="section">
   <h2>Education</h2>
-  <div class="card">
-    <p><strong>M.Tech Data Science</strong> – Amrita Vishwa Vidyapeetham<br>CGPA: 8.72</p>
-    <p><strong>B.Tech Dairy Technology</strong> – Kerala Veterinary and Animal Sciences University<br>OGPA: 8.39</p>
-    <p><strong>Higher Secondary</strong> – Govt HSS, Pala (98.66%)</p>
-    <p><strong>10th Board</strong> – Govt HSS, Pala (95%)</p>
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <span class="dot"></span>
+      <div>
+        <h3>M.Tech Data Science</h3>
+        <p>Amrita Vishwa Vidyapeetham · CGPA: 8.72</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <span class="dot"></span>
+      <div>
+        <h3>B.Tech Dairy Technology</h3>
+        <p>Kerala Veterinary and Animal Sciences University · OGPA: 8.39</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <span class="dot"></span>
+      <div>
+        <h3>Higher Secondary</h3>
+        <p>Govt HSS Pala · 98.66%</p>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<section class="container">
-  <h2>Technical Skills</h2>
-  <div class="card">
-    <p><strong>Programming:</strong> Python, Java, SQL, PostgreSQL</p>
-    <p><strong>Machine Learning:</strong> Classification, Regression, Clustering, Statistical Analysis, Model Evaluation</p>
-    <p><strong>Deep Learning:</strong> Neural Networks, Natural Language Processing, Computer Vision, Speech Processing</p>
-    <p><strong>Libraries:</strong> Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn, TensorFlow, Keras, NLTK</p>
-    <p><strong>Tools:</strong> Jupyter Notebook, Google Colab, VS Code</p>
-    <p><strong>Version Control:</strong> Git, GitHub</p>
+<!-- SKILLS -->
+<section class="section">
+  <h2>Technical Expertise</h2>
+  <div class="skill-grid">
+    <span>Python</span><span>Java</span><span>SQL</span><span>PostgreSQL</span>
+    <span>Machine Learning</span><span>Deep Learning</span>
+    <span>Computer Vision</span><span>NLP</span>
+    <span>Speech Processing</span>
+    <span>TensorFlow</span><span>Keras</span><span>Scikit-learn</span>
+    <span>Git & GitHub</span>
   </div>
 </section>
 
-<section class="container">
-  <h2>Projects</h2>
+<!-- PROJECTS -->
+<section class="section">
+  <h2>Research & Projects</h2>
 
-  <div class="project-card">
+  <div class="project">
     <h3>Cross-Lingual Speaker Verification for Indic Languages</h3>
-    <ul>
-      <li>Developed a robust cross-lingual speaker verification system by pre-training on high-resource English (LibriSpeech) and fine-tuning on low-resource Indic languages (Tamil, Malayalam).</li>
-      <li>Implemented an advanced ECAPA-Conformer architecture with a multi-head attention module to fuse spectral (Log-Mel, MFCC) and prosodic (pitch, energy) features.</li>
-      <li>Enhanced embedding discriminability using a hybrid AAM-Softmax and Triplet loss, combined with extensive data augmentation (SpecAugment, noise, reverb) to ensure model robustness.</li>
-    </ul>
+    <p>
+      Developed a robust cross-lingual speaker verification system by pre-training on
+      high-resource English (LibriSpeech) and fine-tuning on low-resource Indic languages
+      such as Tamil and Malayalam. Implemented an advanced ECAPA-Conformer architecture
+      with a multi-head attention mechanism to fuse spectral features (Log-Mel, MFCC)
+      and prosodic features (pitch, energy). Enhanced embedding discriminability using
+      a hybrid AAM-Softmax and Triplet loss, combined with extensive data augmentation
+      techniques including SpecAugment, noise injection, and reverberation to improve robustness.
+    </p>
   </div>
 
-  <div class="project-card">
-    <h3>Multilingual Hate Speech Detection Using Machine Learning and Transformers</h3>
-    <ul>
-      <li>Developed a multilingual hate speech detection system for English and Malayalam social media datasets.</li>
-      <li>Implemented and compared traditional ML models (Decision Tree, Random Forest, XGBoost), CNN + BiLSTM hybrid model, and transformer-based models (BERT, MuRIL, mBERT, IndicBERT).</li>
-      <li>Optimized hyperparameters and addressed class imbalance, contributing to robust NLP solutions for low-resource languages.</li>
-    </ul>
+  <div class="project">
+    <h3>Multilingual Hate Speech Detection Using ML and Transformers</h3>
+    <p>
+      Developed a multilingual hate speech detection system for English and Malayalam
+      social media datasets. Implemented and compared traditional machine learning models
+      (Decision Tree, Random Forest, XGBoost), CNN-BiLSTM hybrid architectures, and
+      transformer-based models including BERT, MuRIL, mBERT, and IndicBERT.
+      Addressed class imbalance and optimized hyperparameters to ensure reliable
+      performance on low-resource language data.
+    </p>
   </div>
 
-  <div class="project-card">
-    <h3>Indian Food Detection and Nutrient Estimation System using YOLOv5</h3>
-    <ul>
-      <li>Built a computer vision–based data science pipeline to detect Indian food items and associate them with nutritional data.</li>
-      <li>Compared optimization strategies and achieved mAP@0.5 of 0.76.</li>
-      <li>Reduced false positives by 18% through optimizer and threshold tuning.</li>
-      <li>Evaluated model behavior to understand real-world applicability and limitations.</li>
-    </ul>
+  <div class="project">
+    <h3>Indian Food Detection and Nutrient Estimation using YOLOv5</h3>
+    <p>
+      Built a computer vision-based data science pipeline to detect Indian food items
+      and associate them with nutritional data. Compared multiple optimization strategies
+      and achieved a mAP@0.5 score of 0.76. Reduced false positives by 18% through optimizer
+      and confidence threshold tuning. Evaluated model behavior to understand limitations
+      and real-world applicability.
+    </p>
   </div>
 
-  <div class="project-card">
+  <div class="project">
     <h3>Integrated Segmentation and Classification Framework for Neonatal HIE</h3>
-    <ul>
-      <li>Formulated a two-stage framework combining deep learning–based segmentation and machine learning classification.</li>
-      <li>Performed data exploration and feature extraction to analyze imaging patterns related to disease severity.</li>
-      <li>Achieved Dice score of 0.749 and classification accuracy of 89%.</li>
-      <li>Improved consistency across severity grades with macro F1-score of 0.83.</li>
-      <li>Presented the research at IEEE INDICON 2025.</li>
-    </ul>
+    <p>
+      Designed a two-stage framework combining deep learning-based medical image
+      segmentation with machine learning classification to analyze neonatal HIE.
+      Performed extensive data exploration and feature extraction to capture imaging
+      patterns associated with disease severity. Achieved a Dice score of 0.749 and
+      classification accuracy of 89%, with improved consistency across severity grades
+      reflected by a macro F1-score of 0.83. Presented the work at IEEE INDICON 2025.
+    </p>
   </div>
+
 </section>
 
 <footer>
-  <p>© 2026 Athira Chandran</p>
+  © 2026 Athira Chandran · Data Science & AI
 </footer>
 
 </body>
