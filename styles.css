@@ -18,6 +18,16 @@ header {
   padding: 2.5rem 1rem;
 }
 
+.profile-pic {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #93c5fd;
+  margin-bottom: 1rem;
+}
+
+
 .subtitle {
   margin-top: 0.5rem;
   font-size: 1.1rem;
@@ -71,3 +81,4 @@ footer {
   margin-top: 3rem;
   font-size: 0.9rem;
 }
+
