@@ -2,135 +2,89 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Athira Chandran | Data Science & AI</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Athira Chandran | Data Science & AI</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-card">
-    <img src="profile.jpeg" class="avatar" alt="Athira Chandran">
+<nav class="navbar">
+  <h3 class="logo">Athira</h3>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Research</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="hero" id="about">
+  <div class="hero-content">
+    <img src="profile.jpg" class="profile-pic" alt="Athira Chandran">
     <h1>Athira Chandran</h1>
-    <p class="role">M.Tech Data Science · AI & ML Research</p>
-    <p class="intro">
-      Passionate and goal-oriented Data Science postgraduate with strong analytical,
-      programming, and problem-solving skills. Experienced in machine learning,
-      deep learning, speech processing, computer vision, and NLP with research-driven projects.
+    <p class="tagline">
+      M.Tech Data Science · Machine Learning · Deep Learning · AI Research
     </p>
-
-    <div class="hero-links">
-      <a href="mailto:athirachandran4224@gmail.com">Email</a>
-      <a href="https://www.linkedin.com/in/iamathirachandran" target="_blank">LinkedIn</a>
-      <a href="https://github.com/Athira-Chandran2000" target="_blank">GitHub</a>
-    </div>
+    <p class="summary">
+      I work at the intersection of data, models, and real-world impact.
+      My academic projects focus on speech processing, computer vision,
+      NLP, and medical image analysis, with emphasis on robust evaluation
+      and research-driven design.
+    </p>
   </div>
 </section>
 
-<!-- EDUCATION -->
-<section class="section">
-  <h2>Education</h2>
-  <div class="timeline">
-
-    <div class="timeline-item">
-      <span class="dot"></span>
-      <div>
-        <h3>M.Tech Data Science</h3>
-        <p>Amrita Vishwa Vidyapeetham · CGPA: 8.72</p>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <span class="dot"></span>
-      <div>
-        <h3>B.Tech Dairy Technology</h3>
-        <p>Kerala Veterinary and Animal Sciences University · OGPA: 8.39</p>
-      </div>
-    </div>
-
-    <div class="timeline-item">
-      <span class="dot"></span>
-      <div>
-        <h3>Higher Secondary</h3>
-        <p>Govt HSS Pala · 98.66%</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- SKILLS -->
-<section class="section">
-  <h2>Technical Expertise</h2>
-  <div class="skill-grid">
-    <span>Python</span><span>Java</span><span>SQL</span><span>PostgreSQL</span>
-    <span>Machine Learning</span><span>Deep Learning</span>
-    <span>Computer Vision</span><span>NLP</span>
-    <span>Speech Processing</span>
-    <span>TensorFlow</span><span>Keras</span><span>Scikit-learn</span>
-    <span>Git & GitHub</span>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section class="section">
+<section class="projects" id="projects">
   <h2>Research & Projects</h2>
 
-  <div class="project">
+  <article class="project-card">
     <h3>Cross-Lingual Speaker Verification for Indic Languages</h3>
     <p>
-      Developed a robust cross-lingual speaker verification system by pre-training on
-      high-resource English (LibriSpeech) and fine-tuning on low-resource Indic languages
-      such as Tamil and Malayalam. Implemented an advanced ECAPA-Conformer architecture
-      with a multi-head attention mechanism to fuse spectral features (Log-Mel, MFCC)
-      and prosodic features (pitch, energy). Enhanced embedding discriminability using
-      a hybrid AAM-Softmax and Triplet loss, combined with extensive data augmentation
-      techniques including SpecAugment, noise injection, and reverberation to improve robustness.
+      Developed a robust cross-lingual speaker verification system by pre-training
+      on high-resource English (LibriSpeech) and fine-tuning on low-resource Indic
+      languages such as Tamil and Malayalam. Implemented an ECAPA-Conformer
+      architecture with multi-head attention to fuse spectral and prosodic features.
+      Enhanced embedding discriminability using hybrid AAM-Softmax and Triplet loss,
+      combined with extensive data augmentation.
     </p>
-  </div>
+  </article>
 
-  <div class="project">
-    <h3>Multilingual Hate Speech Detection Using ML and Transformers</h3>
+  <article class="project-card">
+    <h3>Multilingual Hate Speech Detection using ML and Transformers</h3>
     <p>
-      Developed a multilingual hate speech detection system for English and Malayalam
-      social media datasets. Implemented and compared traditional machine learning models
-      (Decision Tree, Random Forest, XGBoost), CNN-BiLSTM hybrid architectures, and
-      transformer-based models including BERT, MuRIL, mBERT, and IndicBERT.
-      Addressed class imbalance and optimized hyperparameters to ensure reliable
-      performance on low-resource language data.
+      Designed a multilingual hate speech detection pipeline for English and Malayalam
+      social media datasets. Compared traditional machine learning models, CNN–BiLSTM
+      architectures, and transformer-based models including BERT, MuRIL, mBERT, and
+      IndicBERT. Addressed class imbalance and optimized hyperparameters for low-resource
+      NLP settings.
     </p>
-  </div>
+  </article>
 
-  <div class="project">
-    <h3>Indian Food Detection and Nutrient Estimation using YOLOv5</h3>
+  <article class="project-card">
+    <h3>Neonatal HIE Segmentation and Classification Framework</h3>
     <p>
-      Built a computer vision-based data science pipeline to detect Indian food items
-      and associate them with nutritional data. Compared multiple optimization strategies
-      and achieved a mAP@0.5 score of 0.76. Reduced false positives by 18% through optimizer
-      and confidence threshold tuning. Evaluated model behavior to understand limitations
-      and real-world applicability.
+      Proposed a two-stage framework combining deep learning–based medical image
+      segmentation and machine learning classification. Achieved a Dice score of 0.749
+      and classification accuracy of 89%, with improved consistency across severity
+      grades. Presented at IEEE INDICON 2025.
     </p>
-  </div>
+  </article>
+</section>
 
-  <div class="project">
-    <h3>Integrated Segmentation and Classification Framework for Neonatal HIE</h3>
-    <p>
-      Designed a two-stage framework combining deep learning-based medical image
-      segmentation with machine learning classification to analyze neonatal HIE.
-      Performed extensive data exploration and feature extraction to capture imaging
-      patterns associated with disease severity. Achieved a Dice score of 0.749 and
-      classification accuracy of 89%, with improved consistency across severity grades
-      reflected by a macro F1-score of 0.83. Presented the work at IEEE INDICON 2025.
-    </p>
+<section class="contact" id="contact">
+  <h2>Contact</h2>
+  <p>
+    Interested in research, internships, or data-driven problem solving.
+  </p>
+  <div class="contact-links">
+    <a href="mailto:athirachandran4224@gmail.com">Email</a>
+    <a href="https://github.com/Athira-Chandran2000" target="_blank">GitHub</a>
+    <a href="https://linkedin.com/in/iamathirachandran" target="_blank">LinkedIn</a>
   </div>
-
 </section>
 
 <footer>
-  © 2026 Athira Chandran · Data Science & AI
+  © 2026 Athira Chandran
 </footer>
 
 </body>
 </html>
-
