@@ -1,132 +1,463 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Athira Chandran | Data Science Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Athira Chandran | Data Science Portfolio</title>
+    <style>
+        :root {
+            --primary: #00d2ff;
+            --secondary: #3a7bd5;
+            --bg-dark: #0f172a;
+            --text-light: #f8fafc;
+            --section-bg: #1e293b;
+            --card-bg: #334155;
+        }
+        body { 
+            font-family: 'Segoe UI', system-ui, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            color: var(--text-light); 
+            background-color: var(--bg-dark);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        /* Hero Section & Canvas */
+        #hero-section {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+            overflow: hidden;
+        }
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 3rem;
+            background: rgba(15, 23, 42, 0.6);
+            border-radius: 20px;
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        .hero-content h1 { 
+            margin: 0; 
+            font-size: 4rem; 
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
+        }
+        .hero-content p { 
+            font-size: 1.5rem; 
+            margin-top: 1rem; 
+            color: #94a3b8;
+            font-weight: 300;
+        }
+        
+        /* Main Container */
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 4rem 0;
+        }
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--secondary);
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+
+        /* About & Skills Grid */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+            background: var(--section-bg);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            margin-bottom: 4rem;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: transform 0.3s ease;
+        }
+        .about-grid:hover { transform: translateY(-5px); }
+        .contact-info p { margin: 10px 0; color: #cbd5e1; }
+        .contact-info a { color: var(--primary); text-decoration: none; }
+        .contact-info a:hover { color: var(--text-light); }
+        .profile-text p { color: #cbd5e1; font-size: 1.1rem; }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        .skill-category {
+            background: var(--section-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            border-top: 4px solid var(--primary);
+            transition: transform 0.3s ease;
+        }
+        .skill-category:hover {
+            transform: translateY(-5px);
+            border-top: 4px solid var(--secondary);
+        }
+        .skill-category h3 { color: var(--primary); margin-top: 0; }
+        .skill-list { list-style: none; padding: 0; margin: 0; }
+        .skill-list li {
+            background: rgba(255,255,255,0.05);
+            margin: 8px 0;
+            padding: 10px 15px;
+            border-radius: 8px;
+            border-left: 3px solid var(--secondary);
+            color: #e2e8f0;
+        }
+
+        /* Cards for Experience, Education, Projects */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        .card {
+            background: var(--section-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            border-color: var(--primary);
+        }
+        .card h3 { color: var(--primary); margin-top: 0; }
+        .card h4 { color: #94a3b8; margin: 0.5rem 0; font-weight: 500; }
+        .card .date { color: var(--secondary); font-size: 0.9rem; margin-bottom: 1rem; }
+        .card ul { padding-left: 1.5rem; color: #cbd5e1; }
+        .card li { margin-bottom: 0.5rem; }
+
+        .flex-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        .flex-item {
+            flex: 1;
+            min-width: 300px;
+            background: var(--section-bg);
+            padding: 2rem;
+            border-radius: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .about-grid { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 2.5rem; }
+        }
+    </style>
 </head>
 <body>
 
-<header class="navbar">
-  <h2 class="logo">Athira</h2>
-  <nav>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#publications">Publications</a>
-    <a href="#experience">Experience</a>
-    <a href="#contact">Contact</a>
-    <button id="theme-toggle">🌙</button>
-  </nav>
-</header>
+    <section id="hero-section">
+        <canvas id="networkCanvas"></canvas>
+        <div class="hero-content">
+            <h1>Athira Chandran</h1>
+            <p>Data Scientist | Machine Learning, NLP & Computer Vision</p>
+        </div>
+    </section>
 
-<section id="about" class="hero">
-  <img src="profile.jpeg" class="profile-pic" alt="Athira Chandran">
-  <h1>Athira Chandran</h1>
-  <p class="subtitle">
-    M.Tech Data Science · Machine Learning · Deep Learning · AI Research
-  </p>
-  <p class="about-text">
-    Passionate and goal-oriented Data Science postgraduate with strong analytical,
-    programming, and problem-solving skills. Experienced in machine learning,
-    deep learning, speech processing, computer vision, and NLP through research-driven
-    academic projects with emphasis on robust evaluation and real-world applicability.
-  </p>
-</section>
+    <div class="container">
+        
+        <h2 class="section-title">About Me</h2>
+        <div class="about-grid">
+            <div class="contact-info">
+                <h3>Contact Details</h3>
+                <p>📍 Kannur, Kerala</p>
+                <p>📧 <a href="mailto:athirachandran4224@gmail.com">athirachandran4224@gmail.com</a></p>
+                <p>📞 6282402724</p>
+                <p>🔗 <a href="https://linkedin.com/in/iamathirachandran" target="_blank">LinkedIn</a></p>
+                <p>💻 <a href="https://github.com/Athira-Chandran2000" target="_blank">GitHub</a></p>
+                <p>🎂 19/07/2000 | Indian</p>
+            </div>
+            <div class="profile-text">
+                <h3>Profile</h3>
+                <p>Passionate and goal-oriented Data Science enthusiast with strong analytical, programming, and problem-solving skills. Skilled in Artificial Intelligence (AI), Machine Learning, and Deep Learning, with hands-on experience in transformer-based models and neural network architectures. Proficient in Python, Java, SQL, and data science libraries including Pandas, NumPy, Scikit-learn, TensorFlow, and Keras. Experienced in data wrangling, preprocessing, model development, fine-tuning, and performance evaluation across computer vision, speech processing, and multilingual natural language processing projects. Eager to contribute to AI-driven and generative systems through structured analysis and computational approaches.</p>
+            </div>
+        </div>
 
-<section id="skills" class="section">
-  <h2>Technical Skills</h2>
-  <div class="skill-grid">
-    <span>Python</span><span>Java</span><span>SQL</span><span>PostgreSQL</span>
-    <span>Machine Learning</span><span>Deep Learning</span>
-    <span>NLP</span><span>Computer Vision</span><span>Speech Processing</span>
-    <span>TensorFlow</span><span>Keras</span><span>Scikit-learn</span>
-    <span>Pandas</span><span>NumPy</span><span>Git & GitHub</span>
-  </div>
-</section>
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>Programming & Data Analysis</h3>
+                <ul class="skill-list">
+                    <li>Python, Java, SQL, PostgreSQL</li>
+                    <li>Pandas, NumPy, Matplotlib, Seaborn</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Machine & Deep Learning</h3>
+                <ul class="skill-list">
+                    <li>Classification, Regression, Clustering</li>
+                    <li>Scikit-learn, TensorFlow, Keras, NLTK</li>
+                    <li>ANNs, NLP, Computer Vision, Speech Processing</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>GenAI & Transformers</h3>
+                <ul class="skill-list">
+                    <li>Transformer architectures, Fine-tuning</li>
+                    <li>LLMs, RAG, Multimodal AI, Vector Databases</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Tools & Version Control</h3>
+                <ul class="skill-list">
+                    <li>Jupyter Notebook, Google Colab, VS Code</li>
+                    <li>Git, GitHub</li>
+                </ul>
+            </div>
+        </div>
 
-<section id="projects" class="section">
-  <h2>Projects</h2>
+        <h2 class="section-title">Professional Experience</h2>
+        <div class="card-grid">
+            <div class="card">
+                <h3>Data Analysis Intern</h3>
+                <h4>GCMMF - Anand Milk Union Limited (AMUL)</h4>
+                <p class="date">10/2022 – 12/2022 | Gujarat</p>
+                <ul>
+                    <li>Analyzed production data to identify process inefficiencies.</li>
+                    <li>Gained hands-on experience in data collection and interpretation to support operational improvements.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Quality Control Intern</h3>
+                <h4>TCMPF Limited - Aavin</h4>
+                <p class="date">09/2022 – 10/2022 | Chennai</p>
+                <ul>
+                    <li>Explored quality control data to ensure product consistency.</li>
+                    <li>Enhanced understanding of how data-driven insights can improve process reliability and performance.</li>
+                </ul>
+            </div>
+        </div>
 
-  <div class="card">
-    <h3>Cross-Lingual Speaker Verification for Indic Languages</h3>
-    <p>
-      Developed a robust cross-lingual speaker verification system by pre-training on
-      high-resource English (LibriSpeech) and fine-tuning on low-resource Indic languages
-      such as Tamil and Malayalam. Implemented an advanced ECAPA-Conformer architecture
-      with multi-head attention to fuse spectral (Log-Mel, MFCC) and prosodic (pitch, energy)
-      features. Enhanced embedding discriminability using a hybrid AAM-Softmax and Triplet
-      loss combined with extensive data augmentation techniques.
-    </p>
-  </div>
+        <h2 class="section-title">Education</h2>
+        <div class="card-grid">
+            <div class="card">
+                <h3>M Tech Data Science</h3>
+                <h4>Amrita Vishwa Vidyapeetham</h4>
+                <p class="date">Expected 07/2024 | Coimbatore, India</p>
+                <p>Current CGPA: 8.72</p>
+            </div>
+            <div class="card">
+                <h3>B Tech Dairy Technology</h3>
+                <h4>Kerala Veterinary and Animal Sciences University</h4>
+                <p class="date">09/2018 – 01/2023 | Wayanad</p>
+                <p>OGPA: 8.39</p>
+            </div>
+        </div>
 
-  <div class="card">
-    <h3>Multilingual Hate Speech Detection Using ML and Transformers</h3>
-    <p>
-      Developed a multilingual hate speech detection system for English and Malayalam
-      social media datasets. Implemented and compared traditional ML models, CNN-BiLSTM
-      hybrid architectures, and transformer-based models including BERT, MuRIL, mBERT,
-      and IndicBERT. Addressed class imbalance and optimized hyperparameters for low-resource
-      language settings.
-    </p>
-  </div>
+        <h2 class="section-title">Projects</h2>
+        <div class="card-grid">
+            <div class="card">
+                <h3>Customer Engagement & Product Analytics</h3>
+                <ul>
+                    <li>Developed an interactive Python & Streamlit dashboard to analyze churn drivers for 10,000 customers.</li>
+                    <li>Engineered a Relationship Strength Index (RSI) that synthesized product depth and activity.</li>
+                    <li>Built and deployed an automated ETL pipeline using Pandas and Plotly.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Multimodal RAG System using LangChain</h3>
+                <ul>
+                    <li>Built a multimodal RAG system to enable question answering over PDFs and images.</li>
+                    <li>Implemented PDF parsing, text chunking, and embedding generation for efficient retrieval.</li>
+                    <li>Integrated image processing and captioning techniques using vector databases for similarity search.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Neonatal HIE Segmentation & Classification</h3>
+                <ul>
+                    <li>Formulated a two-stage approach combining deep learning segmentation and machine learning classification.</li>
+                    <li>Achieved Dice score of 0.749 for segmentation and classification accuracy of 89%.</li>
+                    <li>Presented the research at IEEE INDICON 2025.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Cross-Lingual Speaker Verification</h3>
+                <ul>
+                    <li>Developed a cross-lingual system pre-training on high-resource English and fine-tuning on Indic languages (Tamil, Malayalam).</li>
+                    <li>Implemented an advanced ECAPA-Conformer architecture with a multi-head attention module.</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Multilingual Hate Speech Detection</h3>
+                <ul>
+                    <li>Developed a system for English and Malayalam social media datasets.</li>
+                    <li>Implemented and compared traditional ML models, CNN + BiLSTM, and transformer models (BERT, MuRIL, mBERT, IndicBERT).</li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>Indian Food Detection & Nutrient Estimation</h3>
+                <ul>
+                    <li>Built a computer vision pipeline using YOLOv5 to detect food and associate nutritional data.</li>
+                    <li>Achieved mAP@0.5 of 0.76, reducing false positives by 18% through optimizer and threshold tuning.</li>
+                </ul>
+            </div>
+        </div>
 
-  <div class="card">
-    <h3>Integrated Segmentation and Classification Framework for Neonatal HIE</h3>
-    <p>
-      Proposed a two-stage framework combining deep learning–based medical image
-      segmentation and machine learning classification. Achieved a Dice score of 0.749
-      and classification accuracy of 89%, with improved consistency across severity grades.
-      Presented at IEEE INDICON 2025.
-    </p>
-  </div>
-</section>
+        <div class="flex-section">
+            <div class="flex-item">
+                <h2 class="section-title">Publications</h2>
+                <div class="card">
+                    <h3>Integrated Segmentation and Classification Framework for Neonatal HIE</h3>
+                    <h4>IEEE</h4>
+                    <p>Presented the work at IEEE INDICON 2025 Conference.</p>
+                </div>
+            </div>
+            <div class="flex-item">
+                <h2 class="section-title">Certificates & Achievements</h2>
+                <div class="card">
+                    <h3>GATE XL 2024</h3>
+                    <p>Score: 604 | AIR: 588</p>
+                </div>
+            </div>
+        </div>
 
-<section id="publications" class="section">
-  <h2>Publications</h2>
-  <div class="card">
-    <p>
-      <strong>Integrated Segmentation and Classification Framework for Neonatal HIE</strong><br>
-      Presented at IEEE INDICON 2025
-    </p>
-  </div>
-</section>
+        <div class="flex-section">
+            <div class="flex-item">
+                <h2 class="section-title">Languages</h2>
+                <ul class="skill-list" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <li>English</li>
+                    <li>Hindi</li>
+                    <li>Malayalam</li>
+                    <li>Tamil</li>
+                </ul>
+            </div>
+            <div class="flex-item">
+                <h2 class="section-title">Soft Skills</h2>
+                <ul class="skill-list" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <li>Communication</li>
+                    <li>Time Management</li>
+                    <li>Decision Making</li>
+                    <li>Team Work</li>
+                    <li>Adaptability</li>
+                </ul>
+            </div>
+        </div>
 
-<section id="experience" class="section">
-  <h2>Experience</h2>
+    </div>
 
-  <div class="card">
-    <h3>GCMMF (AMUL) – Internship</h3>
-    <p>
-      Analyzed production data to identify process inefficiencies and supported
-      operational improvements through data collection and interpretation.
-    </p>
-  </div>
+    <script>
+        const canvas = document.getElementById('networkCanvas');
+        const ctx = canvas.getContext('2d');
+        let particlesArray;
 
-  <div class="card">
-    <h3>TCMPF Limited (Aavin) – Internship</h3>
-    <p>
-      Explored quality control datasets to ensure product consistency and understand
-      how data-driven insights improve process reliability.
-    </p>
-  </div>
-</section>
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
 
-<section id="contact" class="section contact">
-  <h2>Contact</h2>
-  <p>Interested in research, internships, or data-driven roles.</p>
-  <div class="contact-links">
-    <a href="mailto:athirachandran4224@gmail.com">Email</a>
-    <a href="https://github.com/Athira-Chandran2000" target="_blank">GitHub</a>
-    <a href="https://linkedin.com/in/iamathirachandran" target="_blank">LinkedIn</a>
-  </div>
-</section>
+        window.addEventListener('resize', function() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            init();
+        });
 
-<footer>
-  © 2026 Athira Chandran
-</footer>
+        class Particle {
+            constructor(x, y, directionX, directionY, size, color) {
+                this.x = x;
+                this.y = y;
+                this.directionX = directionX;
+                this.directionY = directionY;
+                this.size = size;
+                this.color = color;
+            }
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+                ctx.fillStyle = '#00d2ff';
+                ctx.fill();
+            }
+            update() {
+                if (this.x > canvas.width || this.x < 0) {
+                    this.directionX = -this.directionX;
+                }
+                if (this.y > canvas.height || this.y < 0) {
+                    this.directionY = -this.directionY;
+                }
+                this.x += this.directionX;
+                this.y += this.directionY;
+                this.draw();
+            }
+        }
 
-<script src="script.js"></script>
+        function init() {
+            particlesArray = [];
+            let numberOfParticles = (canvas.height * canvas.width) / 9000;
+            for (let i = 0; i < numberOfParticles; i++) {
+                let size = (Math.random() * 2) + 1;
+                let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
+                let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
+                let directionX = (Math.random() * 2) - 1;
+                let directionY = (Math.random() * 2) - 1;
+                let color = '#00d2ff';
+                particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
+            }
+        }
+
+        function connect() {
+            let opacityValue = 1;
+            for (let a = 0; a < particlesArray.length; a++) {
+                for (let b = a; b < particlesArray.length; b++) {
+                    let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x))
+                    + ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
+                    if (distance < (canvas.width / 7) * (canvas.height / 7)) {
+                        opacityValue = 1 - (distance / 20000);
+                        ctx.strokeStyle = 'rgba(0, 210, 255,' + opacityValue + ')';
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                        ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            ctx.clearRect(0, 0, innerWidth, innerHeight);
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+            }
+            connect();
+        }
+
+        init();
+        animate();
+    </script>
 </body>
 </html>
