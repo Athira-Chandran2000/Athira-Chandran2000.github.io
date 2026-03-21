@@ -6,9 +6,9 @@
     <title>Athira Chandran | Data Science Portfolio</title>
     <style>
         :root {
-            /* New Color Palette: Violet & Emerald on Deep Dark */
-            --primary: #8b5cf6; /* Deep Violet */
-            --secondary: #10b981; /* Emerald Green */
+            /* Color Palette: Violet & Emerald on Deep Dark */
+            --primary: #8b5cf6; 
+            --secondary: #10b981; 
             --bg-dark: #0a0a0a;
             --section-bg: #171717;
             --text-light: #e5e5e5;
@@ -139,7 +139,20 @@
         .contact-info p { margin: 10px 0; color: #a3a3a3; }
         .contact-info a { color: var(--secondary); text-decoration: none; font-weight: bold;}
         .contact-info a:hover { color: var(--primary); }
-        .profile-text p { color: #d4d4d4; font-size: 1.1rem; }
+        
+        /* Updated Profile Text Styling (Tailwind-inspired) */
+        .profile-text {
+            max-width: 32rem; 
+        }
+        .profile-text p { 
+            color: #a3a3a3; 
+            font-size: 1.125rem; 
+            line-height: 1.625; 
+            margin-bottom: 1rem;
+        }
+        @media (min-width: 768px) {
+            .profile-text p { font-size: 1.25rem; }
+        }
         
         /* Interactive Accordions for Projects/Experience */
         details {
@@ -227,7 +240,15 @@
                 <p>💻 <a href="https://github.com/Athira-Chandran2000" target="_blank">GitHub</a></p>
             </div>
             <div class="profile-text">
-                <p>Passionate and goal-oriented Data Science enthusiast with strong analytical, programming, and problem-solving skills. Skilled in Artificial Intelligence (AI), Machine Learning, and Deep Learning, with hands-on experience in transformer-based models and neural network architectures. Proficient in Python, Java, SQL, and data science libraries. Experienced in data wrangling, preprocessing, model development, fine-tuning, and performance evaluation across computer vision, speech processing, and multilingual natural language processing projects.</p>
+                <p>
+                    Hi, I'm Athira! I'm a budding Data Scientist currently wrapping up my M.Tech. Fun fact about me: my journey into tech is a bit unconventional. I actually hold a B.Tech in Dairy Technology. So yes, I successfully transitioned from churning milk to churning massive datasets!
+                </p>
+                <p>
+                    These days, I spend my time building machine learning models, fine-tuning neural networks, and crafting high-performance code to make sense of complex data. Whether I'm training transformers for multilingual hate speech detection or using computer vision to estimate the nutrients in a plate of food, my focus is on building clean, maintainable, and impactful solutions.
+                </p>
+                <p>
+                    When I'm not debugging or waiting for my models to finish training, I'm usually looking for my next big project or wondering why my code worked on the first try (always a bit suspicious, right?).
+                </p>
             </div>
         </div>
 
@@ -400,7 +421,7 @@
                     + ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
                     if (distance < (canvas.width / 8) * (canvas.height / 8)) {
                         opacityValue = 1 - (distance / 20000);
-                        ctx.strokeStyle = 'rgba(139, 92, 246,' + opacityValue + ')'; // Violet connecting lines
+                        ctx.strokeStyle = 'rgba(139, 92, 246,' + opacityValue + ')'; 
                         ctx.lineWidth = 1;
                         ctx.beginPath();
                         ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
