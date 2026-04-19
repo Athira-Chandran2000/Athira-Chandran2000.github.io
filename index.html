@@ -7,16 +7,19 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0a0a0f;
-    --bg2: #11111a;
-    --bg3: #1a1a28;
-    --accent: #7c6ef5;
-    --accent2: #a78bfa;
-    --teal: #2dd4bf;
-    --amber: #fbbf24;
-    --text: #f0eeff;
-    --muted: #8885a8;
-    --border: rgba(124,110,245,0.18);
+    --bg: #0f1623;
+    --bg2: #161f30;
+    --bg3: #1e293b;
+    --accent: #6366f1;
+    --accent2: #a5b4fc;
+    --teal: #06b6d4;
+    --amber: #f59e0b;
+    --rose: #f43f5e;
+    --green: #10b981;
+    --text: #e2e8f0;
+    --muted: #7d8fa8;
+    --border: rgba(99,102,241,0.2);
+    --card-bg: #1e293b;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
@@ -31,14 +34,14 @@
 
   /* CURSOR */
   .cursor { position: fixed; width: 10px; height: 10px; background: var(--accent); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: transform 0.1s, width 0.3s, height 0.3s, background 0.3s; }
-  .cursor-trail { position: fixed; width: 36px; height: 36px; border: 1px solid rgba(124,110,245,0.4); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: left 0.12s ease, top 0.12s ease; }
+  .cursor-trail { position: fixed; width: 36px; height: 36px; border: 1px solid rgba(99,102,241,0.5); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: left 0.12s ease, top 0.12s ease; }
 
   /* NAV */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     display: flex; justify-content: space-between; align-items: center;
     padding: 1.5rem 4rem;
-    background: rgba(10,10,15,0.85);
+    background: rgba(15,22,35,0.92);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border);
     transition: padding 0.3s;
@@ -66,20 +69,21 @@
   }
   .hero-bg {
     position: absolute; inset: 0; z-index: 0;
-    background: radial-gradient(ellipse 80% 60% at 60% 40%, rgba(124,110,245,0.12) 0%, transparent 70%),
-                radial-gradient(ellipse 50% 40% at 20% 80%, rgba(45,212,191,0.07) 0%, transparent 60%);
+    background: radial-gradient(ellipse 70% 60% at 65% 40%, rgba(99,102,241,0.18) 0%, transparent 65%),
+                radial-gradient(ellipse 40% 40% at 15% 75%, rgba(6,182,212,0.12) 0%, transparent 60%),
+                radial-gradient(ellipse 35% 35% at 85% 80%, rgba(244,63,94,0.08) 0%, transparent 55%);
   }
   .hero-grid {
     position: absolute; inset: 0;
-    background-image: linear-gradient(rgba(124,110,245,0.04) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(124,110,245,0.04) 1px, transparent 1px);
+    background-image: linear-gradient(rgba(99,102,241,0.07) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(99,102,241,0.07) 1px, transparent 1px);
     background-size: 60px 60px;
   }
   .hero-content { position: relative; z-index: 1; max-width: 800px; }
   .hero-tag {
     display: inline-flex; align-items: center; gap: 8px;
     font-family: 'JetBrains Mono', monospace; font-size: 0.75rem;
-    color: var(--teal); border: 1px solid rgba(45,212,191,0.3);
+    color: var(--teal); border: 1px solid rgba(6,182,212,0.35);
     padding: 6px 14px; border-radius: 100px; margin-bottom: 2rem;
     opacity: 0; animation: fadeUp 0.8s 0.2s forwards;
   }
@@ -104,10 +108,10 @@
   .pill {
     padding: 6px 16px; border-radius: 100px; font-size: 0.8rem;
     font-weight: 400; border: 1px solid var(--border);
-    color: var(--muted); background: rgba(124,110,245,0.06);
+    color: var(--muted); background: rgba(224,123,79,0.06);
     transition: all 0.3s;
   }
-  .pill:hover { border-color: var(--accent); color: var(--accent2); background: rgba(124,110,245,0.12); }
+  .pill:hover { border-color: var(--accent); color: var(--accent2); background: rgba(224,123,79,0.12); }
   .hero-cta {
     display: flex; gap: 1rem; margin-top: 3rem;
     opacity: 0; animation: fadeUp 0.8s 1s forwards;
@@ -166,7 +170,7 @@
   .about-text p span { color: var(--text); }
   .about-highlights { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
   .highlight-card {
-    padding: 1.5rem; background: var(--bg3); border: 1px solid var(--border);
+    padding: 1.5rem; background: var(--card-bg); border: 1px solid var(--border);
     border-radius: 12px; transition: all 0.4s;
   }
   .highlight-card:hover { border-color: var(--accent); transform: translateY(-4px); }
@@ -188,10 +192,10 @@
   .skill-chip {
     padding: 8px 16px; font-size: 0.82rem; border-radius: 6px;
     border: 1px solid var(--border); color: var(--muted);
-    background: var(--bg2); font-family: 'DM Sans', sans-serif;
+    background: var(--card-bg); font-family: 'DM Sans', sans-serif;
     transition: all 0.3s; position: relative; overflow: hidden;
   }
-  .skill-chip::before { content: ''; position: absolute; inset: 0; background: rgba(124,110,245,0.08); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
+  .skill-chip::before { content: ''; position: absolute; inset: 0; background: rgba(99,102,241,0.1); transform: scaleX(0); transform-origin: left; transition: transform 0.3s; }
   .skill-chip:hover { color: var(--accent2); border-color: var(--accent); }
   .skill-chip:hover::before { transform: scaleX(1); }
 
@@ -199,7 +203,7 @@
   #projects { background: var(--bg2); }
   .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 1.5rem; margin-top: 4rem; }
   .project-card {
-    background: var(--bg3); border: 1px solid var(--border);
+    background: var(--card-bg); border: 1px solid var(--border);
     border-radius: 16px; padding: 2rem; position: relative; overflow: hidden;
     transition: all 0.4s; cursor: none;
   }
@@ -208,16 +212,18 @@
     background: linear-gradient(90deg, var(--accent), var(--teal));
     transform: scaleX(0); transform-origin: left; transition: transform 0.4s;
   }
-  .project-card:hover { border-color: rgba(124,110,245,0.4); transform: translateY(-6px); }
+  .project-card:hover { border-color: rgba(99,102,241,0.45); transform: translateY(-6px); }
   .project-card:hover::before { transform: scaleX(1); }
   .project-badge {
     display: inline-flex; align-items: center; gap: 6px;
     padding: 4px 12px; border-radius: 100px; font-size: 0.72rem;
     font-family: 'JetBrains Mono', monospace; margin-bottom: 1.2rem;
   }
-  .badge-ieee { background: rgba(251,191,36,0.1); color: var(--amber); border: 1px solid rgba(251,191,36,0.3); }
-  .badge-ai { background: rgba(124,110,245,0.1); color: var(--accent2); border: 1px solid rgba(124,110,245,0.3); }
-  .badge-nlp { background: rgba(45,212,191,0.1); color: var(--teal); border: 1px solid rgba(45,212,191,0.3); }
+  .badge-ieee { background: rgba(245,158,11,0.12); color: var(--amber); border: 1px solid rgba(245,158,11,0.3); }
+  .badge-ai { background: rgba(99,102,241,0.12); color: var(--accent2); border: 1px solid rgba(99,102,241,0.3); }
+  .badge-nlp { background: rgba(6,182,212,0.12); color: var(--teal); border: 1px solid rgba(6,182,212,0.3); }
+  .badge-green { background: rgba(16,185,129,0.12); color: var(--green); border: 1px solid rgba(16,185,129,0.3); }
+  .badge-rose { background: rgba(244,63,94,0.12); color: var(--rose); border: 1px solid rgba(244,63,94,0.3); }
   .project-title { font-family: 'DM Serif Display', serif; font-size: 1.25rem; color: var(--text); margin-bottom: 0.8rem; line-height: 1.3; }
   .project-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem; }
   .project-metrics { display: flex; gap: 1.5rem; padding-top: 1.2rem; border-top: 1px solid var(--border); }
@@ -230,15 +236,15 @@
   /* PUBLICATIONS */
   #publications { background: var(--bg); }
   .pub-card {
-    background: var(--bg2); border: 1px solid var(--border);
+    background: var(--card-bg); border: 1px solid var(--border);
     border-radius: 16px; padding: 2.5rem; margin-top: 3rem;
     display: grid; grid-template-columns: auto 1fr; gap: 2.5rem; align-items: start;
     transition: all 0.4s;
   }
-  .pub-card:hover { border-color: rgba(251,191,36,0.4); }
+  .pub-card:hover { border-color: rgba(245,158,11,0.4); }
   .pub-icon {
     width: 64px; height: 64px; border-radius: 12px;
-    background: rgba(251,191,36,0.1); border: 1px solid rgba(251,191,36,0.3);
+    background: rgba(245,158,11,0.12); border: 1px solid rgba(245,158,11,0.3);
     display: flex; align-items: center; justify-content: center;
     font-size: 1.8rem; flex-shrink: 0;
   }
@@ -265,7 +271,7 @@
   #achievements { background: var(--bg); }
   .achieve-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.2rem; margin-top: 3.5rem; }
   .achieve-card {
-    padding: 1.8rem; background: var(--bg2); border: 1px solid var(--border);
+    padding: 1.8rem; background: var(--card-bg); border: 1px solid var(--border);
     border-radius: 12px; transition: all 0.4s;
   }
   .achieve-card:hover { border-color: var(--accent); transform: translateY(-4px); }
@@ -280,7 +286,7 @@
   .contact-links { display: flex; flex-direction: column; gap: 1rem; }
   .contact-link {
     display: flex; align-items: center; gap: 1rem; padding: 1rem 1.4rem;
-    background: var(--bg3); border: 1px solid var(--border); border-radius: 10px;
+    background: var(--card-bg); border: 1px solid var(--border); border-radius: 10px;
     text-decoration: none; color: var(--muted); font-size: 0.9rem;
     transition: all 0.3s;
   }
@@ -291,7 +297,7 @@
   .form-group { display: flex; flex-direction: column; gap: 6px; }
   .form-label { font-size: 0.8rem; color: var(--muted); font-family: 'JetBrains Mono', monospace; }
   .form-input, .form-textarea {
-    background: var(--bg3); border: 1px solid var(--border); color: var(--text);
+    background: var(--card-bg); border: 1px solid var(--border); color: var(--text);
     padding: 12px 16px; border-radius: 8px; font-family: 'DM Sans', sans-serif;
     font-size: 0.9rem; transition: border-color 0.3s; outline: none;
   }
@@ -300,7 +306,7 @@
 
   /* FOOTER */
   footer {
-    background: var(--bg); padding: 2.5rem 4rem;
+    background: var(--bg2); padding: 2.5rem 4rem;
     border-top: 1px solid var(--border);
     display: flex; justify-content: space-between; align-items: center;
   }
@@ -367,8 +373,9 @@
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
-  <div class="blob" style="width:500px;height:500px;background:rgba(124,110,245,0.08);top:-100px;right:0;animation-duration:10s;"></div>
-  <div class="blob" style="width:300px;height:300px;background:rgba(45,212,191,0.06);bottom:50px;left:10%;animation-duration:7s;animation-delay:2s;"></div>
+  <div class="blob" style="width:500px;height:500px;background:rgba(99,102,241,0.1);top:-100px;right:0;animation-duration:10s;"></div>
+  <div class="blob" style="width:300px;height:300px;background:rgba(6,182,212,0.08);bottom:50px;left:10%;animation-duration:7s;animation-delay:2s;"></div>
+  <div class="blob" style="width:200px;height:200px;background:rgba(244,63,94,0.06);top:30%;left:40%;animation-duration:9s;animation-delay:1s;"></div>
 
   <div class="hero-content">
     <div class="hero-tag">Available for opportunities</div>
@@ -425,25 +432,25 @@
       <p>Currently exploring roles in <span>data science, ML engineering, and AI research</span> where I can apply deep technical skills to real-world challenges.</p>
     </div>
     <div class="about-highlights">
-      <div class="highlight-card reveal reveal-delay-1">
-        <div class="highlight-icon">🔬</div>
-        <div class="highlight-title">IEEE Researcher</div>
-        <div class="highlight-desc">Published at INDICON 2025 — medical imaging & deep learning</div>
-      </div>
-      <div class="highlight-card reveal reveal-delay-2">
+      <div class="highlight-card reveal reveal-delay-1" style="border-left:3px solid var(--accent);">
         <div class="highlight-icon">🧠</div>
         <div class="highlight-title">GATE Qualified</div>
         <div class="highlight-desc">Score 604, AIR 588 — national-level academic excellence</div>
       </div>
-      <div class="highlight-card reveal reveal-delay-3">
+      <div class="highlight-card reveal reveal-delay-2" style="border-left:3px solid var(--teal);">
         <div class="highlight-icon">🤖</div>
         <div class="highlight-title">GenAI Specialist</div>
         <div class="highlight-desc">LLMs, RAG systems, transformers, vector databases</div>
       </div>
-      <div class="highlight-card reveal reveal-delay-4">
+      <div class="highlight-card reveal reveal-delay-3" style="border-left:3px solid var(--amber);">
         <div class="highlight-icon">🌐</div>
         <div class="highlight-title">Multilingual AI</div>
         <div class="highlight-desc">NLP for Indic languages — Malayalam, cross-lingual systems</div>
+      </div>
+      <div class="highlight-card reveal reveal-delay-4" style="border-left:3px solid var(--rose);">
+        <div class="highlight-icon">📊</div>
+        <div class="highlight-title">End-to-End Builder</div>
+        <div class="highlight-desc">Data preprocessing to deployment — full pipeline ownership</div>
       </div>
     </div>
   </div>
@@ -507,9 +514,9 @@
         <span class="project-tag">SegResNet</span><span class="project-tag">XGBoost</span><span class="project-tag">Medical Imaging</span><span class="project-tag">MONAI</span>
       </div>
       <div class="project-metrics">
-        <div class="metric"><div class="metric-val">0.749</div><div class="metric-key">Dice Score</div></div>
-        <div class="metric"><div class="metric-val">89%</div><div class="metric-key">Classification Accuracy</div></div>
-        <div class="metric"><div class="metric-val">0.83</div><div class="metric-key">Macro F1</div></div>
+        <div class="metric"><div class="metric-val" style="color:var(--amber)">0.749</div><div class="metric-key">Dice Score</div></div>
+        <div class="metric"><div class="metric-val" style="color:var(--green)">89%</div><div class="metric-key">Classification Accuracy</div></div>
+        <div class="metric"><div class="metric-val" style="color:var(--teal)">0.83</div><div class="metric-key">Macro F1</div></div>
       </div>
     </div>
 
@@ -521,8 +528,8 @@
         <span class="project-tag">LangChain</span><span class="project-tag">LLaMA 3.1</span><span class="project-tag">FAISS</span><span class="project-tag">Gradio</span><span class="project-tag">PyMuPDF</span>
       </div>
       <div class="project-metrics">
-        <div class="metric"><div class="metric-val">RAG</div><div class="metric-key">Architecture</div></div>
-        <div class="metric"><div class="metric-val">8B</div><div class="metric-key">Model Params</div></div>
+        <div class="metric"><div class="metric-val" style="color:var(--accent2)">RAG</div><div class="metric-key">Architecture</div></div>
+        <div class="metric"><div class="metric-val" style="color:var(--teal)">8B</div><div class="metric-key">Model Params</div></div>
       </div>
     </div>
 
@@ -534,34 +541,54 @@
         <span class="project-tag">BERT</span><span class="project-tag">MuRIL</span><span class="project-tag">IndicBERT</span><span class="project-tag">CNN+BiLSTM</span><span class="project-tag">Malayalam NLP</span>
       </div>
       <div class="project-metrics">
-        <div class="metric"><div class="metric-val">4</div><div class="metric-key">Models Compared</div></div>
-        <div class="metric"><div class="metric-val">2</div><div class="metric-key">Languages</div></div>
+        <div class="metric"><div class="metric-val" style="color:var(--teal)">4</div><div class="metric-key">Models Compared</div></div>
+        <div class="metric"><div class="metric-val" style="color:var(--rose)">2</div><div class="metric-key">Languages</div></div>
       </div>
     </div>
 
     <div class="project-card reveal reveal-delay-3">
-      <span class="project-badge badge-nlp">Speech AI</span>
+      <span class="project-badge badge-rose">Speech AI</span>
       <h3 class="project-title">Cross-Lingual Speaker Verification</h3>
       <p class="project-desc">Speaker verification for low-resource Indic languages via transfer learning from English (LibriSpeech). ECAPA-Conformer with attention-based fusion of spectral and prosodic features.</p>
       <div class="project-tags">
         <span class="project-tag">ECAPA-Conformer</span><span class="project-tag">MFCC</span><span class="project-tag">Log-Mel</span><span class="project-tag">Transfer Learning</span>
       </div>
       <div class="project-metrics">
-        <div class="metric"><div class="metric-val">Indic</div><div class="metric-key">Low-resource Languages</div></div>
-        <div class="metric"><div class="metric-val">Cross-Lingual</div><div class="metric-key">Generalisation</div></div>
+        <div class="metric"><div class="metric-val" style="color:var(--rose)">Indic</div><div class="metric-key">Low-resource Languages</div></div>
+        <div class="metric"><div class="metric-val" style="color:var(--accent2)">Cross-Lingual</div><div class="metric-key">Generalisation</div></div>
+      </div>
+    </div>
+
+    <div class="project-card reveal reveal-delay-2">
+      <span class="project-badge badge-green">Agentic AI</span>
+      <h3 class="project-title">AI-Powered Personal Diet Tracking Dashboard</h3>
+      <p class="project-desc">Multi-tenant AI coaching app using LangGraph multi-agent orchestration (Google Gemini / Meta Llama 3) with specialised agents for profile management, meal logging, and trend analysis. Integrated USDA FoodData Central API to autonomously fetch macronutrient data and mitigate LLM hallucination.</p>
+      <div class="project-tags">
+        <span class="project-tag">LangGraph</span><span class="project-tag">Gemini</span><span class="project-tag">Llama 3</span><span class="project-tag">Streamlit</span><span class="project-tag">SQLite</span><span class="project-tag">SQLAlchemy</span><span class="project-tag">Plotly</span>
+      </div>
+      <div class="project-metrics">
+        <div class="metric"><div class="metric-val" style="color:var(--green)">Multi-Agent</div><div class="metric-key">Orchestration</div></div>
+        <div class="metric"><div class="metric-val" style="color:var(--teal)">USDA API</div><div class="metric-key">Real Food Data</div></div>
+        <div class="metric"><div class="metric-val" style="color:var(--amber)">BMR/TDEE</div><div class="metric-key">Dynamic Targets</div></div>
+      </div>
+      <div style="margin-top:1.2rem;padding-top:1rem;border-top:1px solid var(--border);display:flex;gap:1rem;">
+        <a href="https://diet-agent-ddnzfer3fbtgegapplewiex.streamlit.app/" target="_blank" style="font-size:0.8rem;color:var(--green);text-decoration:none;font-family:'JetBrains Mono',monospace;display:flex;align-items:center;gap:6px;transition:color 0.3s;" onmouseover="this.style.color='var(--teal)'" onmouseout="this.style.color='var(--green)'">⬡ Live Demo →</a>
       </div>
     </div>
 
     <div class="project-card reveal reveal-delay-1">
-      <span class="project-badge badge-ai">Data Analytics</span>
+      <span class="project-badge badge-ieee">Data Analytics</span>
       <h3 class="project-title">Customer Churn Analytics Dashboard</h3>
       <p class="project-desc">Interactive Power BI and Streamlit dashboards for 10,000-customer churn analysis. Built a Relationship Strength Index combining product usage and activity to identify high-risk segments.</p>
       <div class="project-tags">
         <span class="project-tag">Power BI</span><span class="project-tag">Streamlit</span><span class="project-tag">Plotly</span><span class="project-tag">Pandas ETL</span>
       </div>
       <div class="project-metrics">
-        <div class="metric"><div class="metric-val">10K</div><div class="metric-key">Customers Analysed</div></div>
-        <div class="metric"><div class="metric-val">1.8×</div><div class="metric-key">Churn Lift</div></div>
+        <div class="metric"><div class="metric-val" style="color:var(--amber)">10K</div><div class="metric-key">Customers Analysed</div></div>
+        <div class="metric"><div class="metric-val" style="color:var(--rose)">1.8×</div><div class="metric-key">Churn Lift</div></div>
+      </div>
+      <div style="margin-top:1.2rem;padding-top:1rem;border-top:1px solid var(--border);display:flex;gap:1rem;">
+        <a href="https://github.com/Athira-Chandran2000/customer-retention-analytics" target="_blank" style="font-size:0.8rem;color:var(--accent2);text-decoration:none;font-family:'JetBrains Mono',monospace;display:flex;align-items:center;gap:6px;transition:color 0.3s;" onmouseover="this.style.color='var(--teal)'" onmouseout="this.style.color='var(--accent2)'">◎ GitHub →</a>
       </div>
     </div>
 
@@ -637,11 +664,11 @@
       <p class="contact-intro">I'm actively looking for entry-level roles in data science, ML engineering, or AI research. If you're working on something interesting, I'd love to hear from you.</p>
       <div class="contact-links">
         <a href="mailto:athirachandran4224@gmail.com" class="contact-link">
-          <div class="contact-link-icon" style="background:rgba(124,110,245,0.1);">✉</div>
+          <div class="contact-link-icon" style="background:rgba(224,123,79,0.15);">✉</div>
           <span>athirachandran4224@gmail.com</span>
         </a>
         <a href="https://linkedin.com/in/iamathirachandran" target="_blank" class="contact-link">
-          <div class="contact-link-icon" style="background:rgba(45,212,191,0.1);">in</div>
+          <div class="contact-link-icon" style="background:rgba(77,184,168,0.15);">in</div>
           <span>linkedin.com/in/iamathirachandran</span>
         </a>
         <a href="https://github.com/Athira-Chandran2000" target="_blank" class="contact-link">
@@ -649,7 +676,7 @@
           <span>github.com/Athira-Chandran2000</span>
         </a>
         <div class="contact-link" style="cursor:default;">
-          <div class="contact-link-icon" style="background:rgba(251,191,36,0.1);">☏</div>
+          <div class="contact-link-icon" style="background:rgba(240,192,112,0.15);">☏</div>
           <span>+91 6282402724 · Kannur, Kerala</span>
         </div>
       </div>
@@ -704,7 +731,7 @@
     el.addEventListener('mouseenter', () => {
       cursor.style.width = '20px';
       cursor.style.height = '20px';
-      cursor.style.background = '#a78bfa';
+      cursor.style.background = '#f0a882';
     });
     el.addEventListener('mouseleave', () => {
       cursor.style.width = '10px';
